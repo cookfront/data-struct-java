@@ -34,5 +34,18 @@ public class MyTest {
         arrStack.push(6);
         System.out.println(arrStack.pop());
         System.out.println(arrStack.size());
+
+        // linked stack test
+        MyLinkedStack<Integer> linkedStack = new MyLinkedStack<Integer>();
+        System.out.println(linkedStack.isEmpty());
+        linkedStack.push(1);
+        linkedStack.push(2);
+        linkedStack.push(3);
+        linkedStack.push(4);
+        linkedStack.push(5);
+        linkedStack.push(6);
+        System.out.println(linkedStack.pop());
+        System.out.println(linkedStack.pop());
+        System.out.println(linkedStack.size());
     }
 }

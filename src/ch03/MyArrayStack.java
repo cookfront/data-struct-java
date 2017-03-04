@@ -1,14 +1,11 @@
 package ch03;
 
-import java.lang.Iterable;
-import java.util.Iterator;
-
 /**
  * Created by cookfront on 2017/3/2.
  *
  * 数组实现的队列
  */
-public class MyArrayStack<AnyType> implements Iterable<AnyType> {
+public class MyArrayStack<AnyType> {
     private static final int DEFAULT_CAPACITY = 5;
 
     private int topOfStack;
@@ -59,23 +56,6 @@ public class MyArrayStack<AnyType> implements Iterable<AnyType> {
         theItems = (AnyType []) new Object[newCapacity];
         for (int i = 0; i < size(); i++) {
             theItems[i] = old[i];
-        }
-    }
-
-    public Iterator<AnyType> iterator() {
-        return new ArrayStackIterator();
-    }
-
-    private class ArrayStackIterator implements Iterator<AnyType> {
-
-        @Override
-        public boolean hasNext() {
-            return false;
-        }
-
-        @Override
-        public AnyType next() {
-            return null;
         }
     }
 }

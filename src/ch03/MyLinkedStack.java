@@ -1,5 +1,7 @@
 package ch03;
 
+import java.util.EmptyStackException;
+
 /**
  * Created by cookfront on 2017/3/2.
  */
@@ -15,6 +17,10 @@ public class MyLinkedStack<AnyType> {
         public Node(AnyType val, Node<AnyType> nextNode) {
             data = val;
             next = nextNode;
+        }
+
+        public boolean end() {
+            return data == null && next == null;
         }
     }
 
@@ -40,5 +46,22 @@ public class MyLinkedStack<AnyType> {
 
     public boolean isEmpty() {
         return theSize == 0;
+    }
+
+    public void push(AnyType val) {
+        theSize++;
+        topOfStack = new Node<AnyType>(val, topOfStack);
+    }
+
+    public AnyType pop() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        AnyType result = topOfStack.data;
+        if (!topOfStack.end()) {
+            topOfStack = topOfStack.next;
+        }
+        theSize--;
+        return result;
     }
 }
