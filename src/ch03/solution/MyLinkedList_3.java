@@ -1,9 +1,9 @@
-package ch03.practice;
+package ch03.solution;
 
 /**
  * Created by cookfront on 2017/3/4.
  */
-public class MyLinkedList_3_3<AnyType> {
+public class MyLinkedList_3<AnyType> {
     /**
      * 链表节点类
      * @param <AnyType>
@@ -25,7 +25,7 @@ public class MyLinkedList_3_3<AnyType> {
     private Node<AnyType> beginMarker;
     private Node<AnyType> endMarker;
 
-    public MyLinkedList_3_3() {
+    public MyLinkedList_3() {
         doClear();
     }
 

@@ -1,8 +1,6 @@
 package ch03;
 
-import ch03.MyArrayList;
-import ch03.practice.MyLinkedList_3_3;
-import ch03.MyArrayStack;
+import ch03.solution.MyLinkedList_3;
 
 /**
  * Created by cookfront on 2017/3/2.
@@ -17,7 +15,7 @@ public class MyTest {
 //        System.out.println(arrList.size());
 
         // linked list test
-        MyLinkedList_3_3<Integer> linkerList = new MyLinkedList_3_3<Integer>();
+        MyLinkedList_3<Integer> linkerList = new MyLinkedList_3<Integer>();
         linkerList.add(1);
         linkerList.add(2);
         linkerList.add(3);
