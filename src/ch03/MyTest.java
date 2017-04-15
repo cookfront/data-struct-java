@@ -1,6 +1,6 @@
 package ch03;
 
-import ch03.solution.MyLinkedList_3;
+import ch03.exercises.MyLinkedList_3;
 
 /**
  * Created by cookfront on 2017/3/2.

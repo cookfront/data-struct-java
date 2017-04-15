@@ -1,4 +1,4 @@
-package ch03.solution;
+package ch03.exercises;
 
 /**
  * Created by cookfront on 2017/3/4.
