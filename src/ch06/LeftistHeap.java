@@ -73,9 +73,10 @@ public class LeftistHeap<AnyType extends Comparable<? super AnyType>> {
     }
 
     public AnyType findMin() {
-        if (!isEmpty()) {
-            return root.element;
+        if (isEmpty()) {
+            System.out.println("error");
         }
+        return root.element;
     }
 
     public boolean isEmpty() {
@@ -87,10 +88,12 @@ public class LeftistHeap<AnyType extends Comparable<? super AnyType>> {
     }
 
     public AnyType deleteMin() {
-        if (!isEmpty()) {
-            AnyType minItem = root.element;
-            root = merge(root.left, root.right);
-            return minItem;
+        if (isEmpty()) {
+            System.out.println("error");
         }
+
+        AnyType minItem = root.element;
+        root = merge(root.left, root.right);
+        return minItem;
     }
 }

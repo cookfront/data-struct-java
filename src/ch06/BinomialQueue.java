@@ -75,23 +75,40 @@ public class BinomialQueue<AnyType extends Comparable<? super AnyType>> {
     }
 
     public AnyType deleteMin() {
-        if (!isEmpty()) {
-            int minIndex = findMinIndex();
-            AnyType minItem = theTrees[minIndex].element;
-
-            BinNode<AnyType> deletedTree = theTrees[minIndex].leftChild;
-
-            // constructor H''
-            BinomialQueue<AnyType> deletedQueue = new BinomialQueue<>();
-            deletedQueue.expandTheTrees(minIndex);
+        if (isEmpty()) {
+            System.out.println("error");
         }
+
+        int minIndex = findMinIndex();
+        AnyType minItem = theTrees[minIndex].element;
+
+        BinNode<AnyType> deletedTree = theTrees[minIndex].leftChild;
+
+        // Construct H''
+        BinomialQueue<AnyType> deletedQueue = new BinomialQueue<>();
+        deletedQueue.expandTheTrees(minIndex);
+
+        deletedQueue.currentSize = (1 << minIndex) - 1;
+        for (int j = minIndex - 1; j >= 0; j--) {
+            deletedQueue.theTrees[ j ] = deletedTree;
+            deletedTree = deletedTree.nextSibling;
+            deletedQueue.theTrees[ j ].nextSibling = null;
+        }
+
+        // Construct H'
+        theTrees[minIndex] = null;
+        currentSize -= deletedQueue.currentSize + 1;
+
+        merge(deletedQueue);
+
+        return minItem;
     }
 
     public AnyType findMin() {
-        if (!isEmpty()) {
-            return theTrees[findMinIndex()].element;
-
+        if (isEmpty()) {
+            System.out.println("error");
         }
+        return theTrees[findMinIndex()].element;
     }
 
     public boolean isEmpty() {
