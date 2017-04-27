@@ -7,7 +7,26 @@
 ## 答案
 
 ```java
+public static <AnyType> void printLots(List<AnyType> L, List<Integer> P) {
+    Iterator<AnyType> iterL = L.iterator();
+    Iterator<Integer> iterP = P.iterator();
 
+    AnyType itemL = null;
+    Integer itemP;
+    int start = 0;
+
+    while (iterL.hasNext() && iterP.hasNext()) {
+        itemP = iterP.next();
+
+        System.out.println("Looking for position " + itemP);
+
+        while (start < itemP && iterL.hasNext()) {
+            start++;
+            itemL = iterL.next();
+        }
+        System.out.println(itemL);
+    }
+}
 ```
 
 运行时间为`O(n2)`。

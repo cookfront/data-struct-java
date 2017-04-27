@@ -125,6 +125,31 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType> {
         return p;
     }
 
+    public static void swapSingleWithNext(Node beforeNode) {
+        Node node, afterNode;
+
+        node = beforeNode.next;
+        afterNode = node.next;
+
+        node.next = afterNode.next;
+        afterNode.next = node;
+        beforeNode.next = afterNode;
+    }
+
+    public static void swapDoubleWithNext(Node node) {
+        Node beforeNode, afterNode;
+
+        beforeNode = node.prev;
+        afterNode = node.next;
+
+        node.next = afterNode.next;
+        afterNode.next.prev = node;
+        afterNode.next = node;
+        node.prev = afterNode;
+        beforeNode.next = afterNode;
+        afterNode.prev = beforeNode;
+    }
+
     public Iterator iterator() {
         return new LinkerListIterator();
     }
@@ -163,6 +188,19 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType> {
             MyLinkedList.this.remove(current.prev);
             expectedModCount++;
             okToRemove = false;
+        }
+    }
+
+    public static void main(String ...args) {
+        MyLinkedList<Integer> list = new MyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        Node node = list.getNode(0);
+        swapSingleWithNext(node);
+        for (Integer item : list) {
+            System.out.println(item);
         }
     }
 }
