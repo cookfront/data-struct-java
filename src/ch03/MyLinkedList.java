@@ -191,6 +191,16 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType> {
         }
     }
 
+    public boolean contains(AnyType x) {
+        Node<AnyType> node = beginMarker.next;
+
+        while (node != endMarker && !node.data.equals(x)) {
+            node = node.next;
+        }
+
+        return (node != endMarker);
+    }
+
     public static void main(String ...args) {
         MyLinkedList<Integer> list = new MyLinkedList<>();
         list.add(1);
